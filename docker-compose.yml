@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  github-clone:
+    image: node:8
+    command: /bin/bash -c "[[ -d /github/fabric-samples ]] || git clone -b master https://github.com/hyperledger/fabric-samples.git /github/fabric-samples"
+    volumes:
+    - ./.github:/github
+  node:
+    container_name: fabric-samples-cli
+    image: node:8
+    tty: true
+    stdin_open: true
+    command: /bin/bash
+    volumes:
+    - ./.github:/github
