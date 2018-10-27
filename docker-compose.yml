@@ -5,7 +5,7 @@ services:
     image: node:8
     command: /bin/bash -c "[[ -d /github/fabric-samples ]] || git clone -b master https://github.com/hyperledger/fabric-samples.git /github/fabric-samples"
     volumes:
-    - ./.github:/github
+    - ./github:/github
   node:
     container_name: fabric-samples-cli
     image: node:8
